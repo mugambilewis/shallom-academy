@@ -114,7 +114,7 @@ export default function Hero() {
 
             {/* Main Heading */}
             <h1 className="text-hero font-display font-bold text-white mb-4 animate-slide-up">
-              <span className="text-gradient">Shallom Academy</span>
+              <span className="text-gradient text-4xl md:text-6xl">Shallom Academy</span>
               <br />
               <span className="text-4xl md:text-6xl">
                 {slides[currentSlide].title}

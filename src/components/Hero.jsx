@@ -69,8 +69,8 @@ export default function Hero() {
               alt={slide.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/30" />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/30 via-black/20 to-black/10" />
+            <div className="absolute inset-0 bg-white/30" />
+            <div className="absolute inset-0 bg-[#0083de]-to-r from-black/70 via-white/50 to-white/30" />
           </div>
         ))}
       </div>
@@ -100,13 +100,13 @@ export default function Hero() {
             <div className="flex items-center gap-4 mb-6 animate-fade-in-up">
               <div className="glass-card px-4 py-2 rounded-full">
                 <div className="flex items-center gap-2 text-white">
-                  <MapPin className="w-4 h-4 text-gradient" />
+                  <MapPin className="w-4 h-4 text-[#0083de]" />
                   <span className="text-sm font-medium">Murang'a, Kenya</span>
                 </div>
               </div>
               <div className="glass-card px-4 py-2 rounded-full">
                 <div className="flex items-center gap-2 text-white">
-                  <Award className="w-4 h-4 text-gradient" />
+                  <Award className="w-4 h-4 text-[#0083de]" />
                   <span className="text-sm font-medium">Est. 2000</span>
                 </div>
               </div>
@@ -114,7 +114,7 @@ export default function Hero() {
 
             {/* Main Heading */}
             <h1 className="text-hero font-display font-bold text-white mb-4 animate-slide-up">
-              <span className="text-gradient text-4xl md:text-6xl">Shallom Academy</span>
+              <span className="text-[#0083de] text-4xl md:text-6xl">Shallom Academy</span>
               <br />
               <span className="text-4xl md:text-6xl">
                 {slides[currentSlide].title}
@@ -122,7 +122,7 @@ export default function Hero() {
             </h1>
 
             {/* Subtitle */}
-            <h2 className="text-subtitle font-display font-semibold text-gradient mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
+            <h2 className="text-2xl font-display font-semibold text-[#0083de] mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
               {slides[currentSlide].subtitle}
             </h2>
 
@@ -133,17 +133,17 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-              <Button variant="hero"  size="xl" className="group text-gradient">
+              <Button variant="hero"  size="xl" className="group text-[#0083de]">
                 Apply Now
                 <Users className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
               
-              <Button variant="glass" size="xl" className="group text-gradient">
+              <Button variant="glass" size="xl" className="group text-[#0083de]">
                 <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
                 Explore Gallery
               </Button>
               
-              <Button variant="outline-gradient" size="xl">
+              <Button variant="outline-[#0083de]" size="xl">
                 Contact Us
               </Button>
             </div>
@@ -151,19 +151,19 @@ export default function Hero() {
             {/* Stats */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
               <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-gradient">25+</div>
+                <div className="text-2xl font-bold text-[#0083de]">25+</div>
                 <div className="text-sm text-white/80">Years Excellence</div>
               </div>
               <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-gradient">1000+</div>
+                <div className="text-2xl font-bold text-[#0083de]">1000+</div>
                 <div className="text-sm text-white/80">Alumni</div>
               </div>
               <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-gradient">20+</div>
+                <div className="text-2xl font-bold text-[#0083de]">20+</div>
                 <div className="text-sm text-white/80">Programs</div>
               </div>
               <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-gradient">100%</div>
+                <div className="text-2xl font-bold text-[#0083de]">100%</div>
                 <div className="text-sm text-white/80">Success Rate</div>
               </div>
             </div>
@@ -179,7 +179,7 @@ export default function Hero() {
             onClick={() => setCurrentSlide(index)}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide 
-                ? "bg-gradient scale-125" 
+                ? "bg-[#0083de] scale-125" 
                 : "bg-white/40 hover:bg-white/60"
             }`}
             aria-label={`Go to slide ${index + 1}`}
@@ -189,7 +189,7 @@ export default function Hero() {
 
       {/* Floating Animation Elements */}
       <div className="absolute top-20 right-20 animate-float">
-        <div className="w-20 h-20 rounded-full bg-gradient/20 backdrop-blur-sm" />
+        <div className="w-20 h-20 rounded-full bg-[#0083de]/20 backdrop-blur-sm" />
       </div>
       <div className="absolute bottom-32 left-20 animate-float" style={{animationDelay: '2s'}}>
         <div className="w-16 h-16 rounded-full bg-green/20 backdrop-blur-sm" />

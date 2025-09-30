@@ -120,12 +120,12 @@ export default function Academics() {
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-24">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-accent/10 border border-gold/30 mb-6 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-bg-[#0083de]/10 border border-gold/30 mb-6 backdrop-blur-sm">
             <Sparkles className="w-4 h-4 text-gold" />
             <span className="text-sm font-semibold text-gold">World-Class Education</span>
           </div>
           <h2 className="text-5xl md:text-6xl font-display font-extrabold mb-6 text-navy leading-tight">
-            Academic <span className="text-gradient">Excellence</span>
+            Academic <span className="text-[#0083de]">Excellence</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Our comprehensive academic programs nurture well-rounded individuals equipped with knowledge, 
@@ -142,7 +142,7 @@ export default function Academics() {
                 onClick={() => setActiveTab(index)}
                 className={`px-6 py-3 rounded-full font-semibold transition-all duration-300 ${
                   activeTab === index
-                    ? 'gradient-accent text-navy shadow-lg shadow-gold/50 scale-105'
+                    ? 'bg-[#0083de] text-navy shadow-lg shadow-gold/50 scale-105'
                     : 'bg-muted/50 text-muted-foreground hover:bg-muted hover:text-navy border border-muted'
                 }`}
               >
@@ -162,7 +162,7 @@ export default function Academics() {
                 <Card className="glass-card shadow-2xl overflow-hidden border-gold/20">
                   <CardContent className="p-12">
                     <div className="flex items-start gap-8">
-                      <div className="w-20 h-20 rounded-2xl gradient-accent flex items-center justify-center shadow-lg flex-shrink-0">
+                      <div className="w-20 h-20 rounded-2xl bg-[#0083de] flex items-center justify-center shadow-lg flex-shrink-0">
                         <BookOpen className="w-10 h-10 text-navy" />
                       </div>
                       <div className="flex-1">
@@ -264,7 +264,7 @@ export default function Academics() {
         <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
           <div>
             <h3 className="text-4xl font-display font-extrabold text-navy mb-8 leading-tight">
-              Why Choose Our <span className="text-gradient">Academic Programs?</span>
+              Why Choose Our <span className="text-[#0083de]">Academic Programs?</span>
             </h3>
             <div className="space-y-6">
               {[
@@ -285,7 +285,7 @@ export default function Academics() {
                 }
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-6 group">
-                  <div className="w-14 h-14 rounded-xl gradient-accent flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
+                  <div className="w-14 h-14 rounded-xl bg-[#0083de] flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300">
                     <item.icon className="w-7 h-7 text-navy" />
                   </div>
                   <div>
@@ -322,7 +322,7 @@ export default function Academics() {
         {/* CTA Section */}
         <div className="text-center">
           <Card className="glass-card max-w-4xl mx-auto shadow-2xl overflow-hidden relative border-gold/20">
-            <div className="absolute inset-0 bg-gradient-accent opacity-5 animate-pulse"></div>
+            <div className="absolute inset-0 bg-bg-[#0083de] opacity-5 animate-pulse"></div>
             <CardContent className="p-12 relative z-10">
               <h3 className="text-4xl font-display font-extrabold text-navy mb-4">
                 Ready to Join Our Academic Family?

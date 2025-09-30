@@ -47,7 +47,7 @@ export default function About() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-5xl md:text-6xl font-display font-extrabold mb-6 text-navy leading-tight">
-            About <span className="text-gradient">Shallom Academy</span>
+            About <span className="text-[#0083de]">Shallom Academy</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             For 25 years, we have been committed to providing world-class education that nurtures 
@@ -59,7 +59,7 @@ export default function About() {
         <div className="grid lg:grid-cols-3 gap-8 mb-20">
           <Card className="glass-card hover-lift">
             <CardContent className="p-8 text-center">
-              <div className="w-16 h-16 mx-auto mb-6 rounded-full gradient-accent flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-6 rounded-full bg-[#0083de] flex items-center justify-center">
                 <Target className="w-8 h-8 text-navy" />
               </div>
               <h3 className="text-2xl font-bold text-navy mb-4">Our Vision</h3>
@@ -172,19 +172,19 @@ export default function About() {
           </h3>
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-gradient to-green"></div>
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-[#0083de] to-[#00FF00]"></div>
             
             <div className="space-y-8">
               {timeline.map((item, index) => (
                 <div key={index} className="relative flex items-start gap-8">
-                  <div className="w-16 h-16 rounded-full gradient-accent flex items-center justify-center text-navy font-bold text-lg z-10">
+                  <div className="w-16 h-16 rounded-full bg-[#0083de] flex items-center justify-center text-white font-bold text-lg z-10">
                     {item.year.slice(-2)}
                   </div>
                   <Card className="flex-1 glass-card hover-lift">
                     <CardContent className="p-6">
                       <div className="flex items-center gap-4 mb-2">
                         <h4 className="text-xl font-bold text-navy">{item.year}</h4>
-                        <div className="h-0.5 flex-1 bg-gradient/30"></div>
+                        <div className="h-0.5 flex-1 bg-[#0083de]/30"></div>
                       </div>
                       <h5 className="text-lg font-semibold text-navy mb-2">{item.event}</h5>
                       <p className="text-muted-foreground">{item.description}</p>

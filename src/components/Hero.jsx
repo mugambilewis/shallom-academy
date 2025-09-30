@@ -11,25 +11,25 @@ subtitle: "Possible With God",
 description: "World-class facilities and holistic education in the heart of Murang'a"
 },
 {
-image: "/images/school-hero.jpg",
+image: "/images/school-hero7.jpg",
 title: "Modern ICT & Robotics Programs",
 subtitle: "Technology-Enhanced Learning",
 description: "Preparing students for the digital future with cutting-edge technology"
 },
 {
-image: "/images/school-hero.jpg",
+image: "/images/school-hero2.jpg",
 title: "World-Class Sports Facilities",
 subtitle: "Excellence in Athletics",
 description: "Swimming, football, athletics and more in our modern sports complex"
 },
 {
-image: "/images/school-hero.jpg",
+image: "/images/school-hero4.jpg",
 title: "Safe & Reliable Transport",
 subtitle: "Convenient School Routes",
 description: "Modern fleet ensuring safe transportation for all our students"
 },
 {
-image: "/images/school-hero.jpg",
+image: "/images/school-hero5.jpg",
 title: "Holistic Development",
 subtitle: "Academic & Sports Excellence",
 description: "Nurturing champions in academics, sports, and character"

@@ -53,7 +53,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative min-h-screen sm:h-screen overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (
@@ -69,7 +69,7 @@ export default function Hero() {
               className="w-full h-full object-cover"
             />
             {/* Strong dark overlay for better contrast */}
-            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50" />
+            <div className="absolute inset-0 bg-black/50" />
           </div>
         ))}
       </div>

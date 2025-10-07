@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Button } from "./ui/button";
 import { ChevronLeft, ChevronRight, Play, Users, Award, MapPin } from "lucide-react";
 
 const slides = [
@@ -69,8 +68,8 @@ export default function Hero() {
               alt={slide.title}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-white/30" />
-            <div className="absolute inset-0 bg-[#0083de]-to-r from-black/70 via-white/50 to-white/30" />
+            {/* Strong dark overlay for better contrast */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/70 to-black/50" />
           </div>
         ))}
       </div>
@@ -78,7 +77,7 @@ export default function Hero() {
       {/* Navigation Controls */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 glass-card p-3 hover:bg-white/20 transition-all"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-full hover:bg-white/20 transition-all duration-300"
         aria-label="Previous slide"
       >
         <ChevronLeft className="w-6 h-6 text-white" />
@@ -86,7 +85,7 @@ export default function Hero() {
       
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 glass-card p-3 hover:bg-white/20 transition-all"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-full hover:bg-white/20 transition-all duration-300"
         aria-label="Next slide"
       >
         <ChevronRight className="w-6 h-6 text-white" />
@@ -94,17 +93,17 @@ export default function Hero() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl">
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="max-w-5xl">
             {/* School Badge */}
-            <div className="flex items-center gap-4 mb-6 animate-fade-in-up">
-              <div className="glass-card px-4 py-2 rounded-full">
+            <div className="flex flex-wrap items-center gap-3 mb-8">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full">
                 <div className="flex items-center gap-2 text-white">
                   <MapPin className="w-4 h-4 text-[#0083de]" />
                   <span className="text-sm font-medium">Murang'a, Kenya</span>
                 </div>
               </div>
-              <div className="glass-card px-4 py-2 rounded-full">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full">
                 <div className="flex items-center gap-2 text-white">
                   <Award className="w-4 h-4 text-[#0083de]" />
                   <span className="text-sm font-medium">Est. 2000</span>
@@ -112,59 +111,62 @@ export default function Hero() {
               </div>
             </div>
 
-            {/* Main Heading */}
-            <h1 className="text-hero font-display font-bold text-white mb-4 animate-slide-up">
-              <span className="text-[#0083de] text-4xl md:text-6xl">Shallom Academy</span>
-              <br />
-              <span className="text-4xl md:text-6xl">
+            {/* Main Heading - Consistent sizing */}
+            <div className="mb-6">
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#0083de] mb-3">
+                Shallom Academy
+              </h1>
+              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 {slides[currentSlide].title}
-              </span>
-            </h1>
+              </h2>
+            </div>
 
-            {/* Subtitle */}
-            <h2 className="text-2xl font-display font-semibold text-[#0083de] mb-6 animate-fade-in-up" style={{animationDelay: '0.2s'}}>
-              {slides[currentSlide].subtitle}
-            </h2>
+            {/* Subtitle with better contrast */}
+            <div className="mb-6">
+              <p className="text-xl md:text-2xl font-semibold text-[#0083de] bg-white/10 backdrop-blur-sm inline-block px-4 py-2 rounded-lg border border-[#0083de]/30">
+                {slides[currentSlide].subtitle}
+              </p>
+            </div>
 
             {/* Description */}
-            <p className="text-xl text-white/90 mb-8 max-w-2xl animate-fade-in-up" style={{animationDelay: '0.4s'}}>
+            <p className="text-lg md:text-xl text-white/95 mb-10 max-w-3xl leading-relaxed">
               {slides[currentSlide].description}
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12 animate-fade-in-up" style={{animationDelay: '0.6s'}}>
-              <Button variant="hero"  size="xl" className="group text-[#0083de]">
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <button className="bg-[#0083de] hover:bg-[#006bb8] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105">
                 Apply Now
-                <Users className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-              </Button>
+                <Users className="w-5 h-5" />
+              </button>
               
-              <Button variant="glass" size="xl" className="group text-[#0083de]">
-                <Play className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <button className="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+                <Play className="w-5 h-5" />
                 Explore Gallery
-              </Button>
+              </button>
               
-              <Button variant="outline-[#0083de]" size="xl">
+              <button className="border-2 border-white hover:bg-white hover:text-black text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300">
                 Contact Us
-              </Button>
+              </button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 animate-fade-in-up" style={{animationDelay: '0.8s'}}>
-              <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-[#0083de]">25+</div>
-                <div className="text-sm text-white/80">Years Excellence</div>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">25+</div>
+                <div className="text-sm md:text-base text-white/90 font-medium">Years Excellence</div>
               </div>
-              <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-[#0083de]">1000+</div>
-                <div className="text-sm text-white/80">Alumni</div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">1000+</div>
+                <div className="text-sm md:text-base text-white/90 font-medium">Alumni</div>
               </div>
-              <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-[#0083de]">20+</div>
-                <div className="text-sm text-white/80">Programs</div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">20+</div>
+                <div className="text-sm md:text-base text-white/90 font-medium">Programs</div>
               </div>
-              <div className="glass-card p-4 text-center hover-lift">
-                <div className="text-2xl font-bold text-[#0083de]">100%</div>
-                <div className="text-sm text-white/80">Success Rate</div>
+              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
+                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">100%</div>
+                <div className="text-sm md:text-base text-white/90 font-medium">Success Rate</div>
               </div>
             </div>
           </div>
@@ -177,22 +179,14 @@ export default function Hero() {
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            className={`h-2 rounded-full transition-all duration-300 ${
               index === currentSlide 
-                ? "bg-[#0083de] scale-125" 
-                : "bg-white/40 hover:bg-white/60"
+                ? "bg-[#0083de] w-8" 
+                : "bg-white/50 w-2 hover:bg-white/80"
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
         ))}
-      </div>
-
-      {/* Floating Animation Elements */}
-      <div className="absolute top-20 right-20 animate-float">
-        <div className="w-20 h-20 rounded-full bg-[#0083de]/20 backdrop-blur-sm" />
-      </div>
-      <div className="absolute bottom-32 left-20 animate-float" style={{animationDelay: '2s'}}>
-        <div className="w-16 h-16 rounded-full bg-green/20 backdrop-blur-sm" />
       </div>
     </section>
   );

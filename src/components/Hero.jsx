@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight, Play, Users, Award, MapPin } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 const slides = [
   {
@@ -56,127 +57,248 @@ export default function Hero() {
     <section className="relative pt-6 sm:pt-4 min-h-screen sm:h-screen overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0">
-        {slides.map((slide, index) => (
-          <div
-            key={index}
-            className={`absolute inset-0 transition-opacity duration-1000 ${
-              index === currentSlide ? "opacity-100" : "opacity-0"
-            }`}
+        <AnimatePresence mode="wait">
+          <motion.div
+            key={currentSlide}
+            initial={{ opacity: 0, scale: 1.1 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            className="absolute inset-0"
           >
-            <img
-              src={slide.image}
-              alt={slide.title}
+            <motion.img
+              src={slides[currentSlide].image}
+              alt={slides[currentSlide].title}
               className="w-full h-full object-cover"
+              initial={{ scale: 1.1 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 8, ease: "linear" }}
             />
             {/* Strong dark overlay for better contrast */}
             <div className="absolute inset-0 bg-black/50" />
-          </div>
-        ))}
+          </motion.div>
+        </AnimatePresence>
       </div>
 
       {/* Navigation Controls */}
-      <button
+      <motion.button
         onClick={prevSlide}
         className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-full hover:bg-white/20 transition-all duration-300"
         aria-label="Previous slide"
+        whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, x: -50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
       >
         <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
+      </motion.button>
       
-      <button
+      <motion.button
         onClick={nextSlide}
         className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-full hover:bg-white/20 transition-all duration-300"
         aria-label="Next slide"
+        whileHover={{ scale: 1.1, backgroundColor: "rgba(255,255,255,0.2)" }}
+        whileTap={{ scale: 0.95 }}
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ delay: 0.5, duration: 0.6 }}
       >
         <ChevronRight className="w-6 h-6 text-white" />
-      </button>
+      </motion.button>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="container mx-auto px-6 md:px-12">
           <div className="max-w-5xl">
             {/* School Badge */}
-            <div className="flex flex-wrap items-center gap-3 mb-8">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full">
+            <motion.div 
+              className="flex flex-wrap items-center gap-3 mb-8"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <motion.div 
+                className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="flex items-center gap-2 text-white">
                   <MapPin className="w-4 h-4 text-[#0083de]" />
                   <span className="text-sm font-medium">Murang'a, Kenya</span>
                 </div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full">
+              </motion.div>
+              <motion.div 
+                className="bg-white/10 backdrop-blur-md border border-white/20 px-4 py-2 rounded-full"
+                whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
+                transition={{ duration: 0.2 }}
+              >
                 <div className="flex items-center gap-2 text-white">
                   <Award className="w-4 h-4 text-[#0083de]" />
                   <span className="text-sm font-medium">Est. 2000</span>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {/* Main Heading - Consistent sizing */}
-            <div className="mb-6">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#0083de] mb-3">
+            <motion.div 
+              className="mb-6"
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 1 }}
+            >
+              <motion.h1 
+                className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#0083de] mb-3"
+                initial={{ opacity: 0, x: -100 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+              >
                 Shallom Academy
-              </h1>
-              <h2 className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
-                {slides[currentSlide].title}
-              </h2>
-            </div>
+              </motion.h1>
+              <AnimatePresence mode="wait">
+                <motion.h2 
+                  key={currentSlide}
+                  className="text-3xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -30 }}
+                  transition={{ duration: 0.6, ease: "easeInOut" }}
+                >
+                  {slides[currentSlide].title}
+                </motion.h2>
+              </AnimatePresence>
+            </motion.div>
 
             {/* Subtitle with better contrast */}
-            <div className="mb-6">
-              <p className="text-xl md:text-2xl font-semibold text-[#0083de] bg-white/10 backdrop-blur-sm inline-block px-4 py-2 rounded-lg border border-[#0083de]/30">
-                {slides[currentSlide].subtitle}
-              </p>
-            </div>
+            <motion.div 
+              className="mb-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8, duration: 0.8 }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.p 
+                  key={`subtitle-${currentSlide}`}
+                  className="text-xl md:text-2xl font-semibold text-[#0083de] bg-white/10 backdrop-blur-sm inline-block px-4 py-2 rounded-lg border border-[#0083de]/30"
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {slides[currentSlide].subtitle}
+                </motion.p>
+              </AnimatePresence>
+            </motion.div>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-white/95 mb-10 max-w-3xl leading-relaxed">
-              {slides[currentSlide].description}
-            </p>
+            <motion.p 
+              className="text-lg md:text-xl text-white/95 mb-10 max-w-3xl leading-relaxed"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1, duration: 0.8 }}
+            >
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={`description-${currentSlide}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {slides[currentSlide].description}
+                </motion.span>
+              </AnimatePresence>
+            </motion.p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-12">
-              <button className="bg-[#0083de] hover:bg-[#006bb8] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105">
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 mb-12"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.2, duration: 0.8 }}
+            >
+              <motion.button 
+                className="bg-[#0083de] hover:bg-[#006bb8] text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2 shadow-lg hover:shadow-xl hover:scale-105"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.4, duration: 0.6 }}
+              >
                 Apply Now
                 <Users className="w-5 h-5" />
-              </button>
+              </motion.button>
               
-              <button className="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2">
+              <motion.button 
+                className="bg-white/10 backdrop-blur-md border border-white/30 hover:bg-white/20 text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300 flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.6, duration: 0.6 }}
+              >
                 <Play className="w-5 h-5" />
                 Explore Gallery
-              </button>
+              </motion.button>
               
-              <button className="border-2 border-white hover:bg-white hover:text-black text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300">
+              <motion.button 
+                className="border-2 border-white hover:bg-white hover:text-black text-white font-semibold px-8 py-4 rounded-lg transition-all duration-300"
+                whileHover={{ scale: 1.05, y: -2 }}
+                whileTap={{ scale: 0.95 }}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 1.8, duration: 0.6 }}
+              >
                 Contact Us
-              </button>
-            </div>
+              </motion.button>
+            </motion.div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">25+</div>
-                <div className="text-sm md:text-base text-white/90 font-medium">Years Excellence</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">1000+</div>
-                <div className="text-sm md:text-base text-white/90 font-medium">Alumni</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">20+</div>
-                <div className="text-sm md:text-base text-white/90 font-medium">Programs</div>
-              </div>
-              <div className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300">
-                <div className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1">100%</div>
-                <div className="text-sm md:text-base text-white/90 font-medium">Success Rate</div>
-              </div>
-            </div>
+            <motion.div 
+              className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6"
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 2, duration: 0.8 }}
+            >
+              {[
+                { value: "25+", label: "Years Excellence" },
+                { value: "1000+", label: "Alumni" },
+                { value: "20+", label: "Programs" },
+                { value: "100%", label: "Success Rate" }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white/10 backdrop-blur-md border border-white/20 p-5 rounded-xl text-center hover:bg-white/15 transition-all duration-300"
+                  whileHover={{ scale: 1.05, y: -5, backgroundColor: "rgba(255,255,255,0.15)" }}
+                  initial={{ opacity: 0, y: 30 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 2.2 + (index * 0.1), duration: 0.6 }}
+                >
+                  <motion.div 
+                    className="text-3xl md:text-4xl font-bold text-[#0083de] mb-1"
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ delay: 2.4 + (index * 0.1), duration: 0.5, type: "spring", stiffness: 200 }}
+                  >
+                    {stat.value}
+                  </motion.div>
+                  <div className="text-sm md:text-base text-white/90 font-medium">{stat.label}</div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
         </div>
       </div>
 
       {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3">
+      <motion.div 
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-3"
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 2.5, duration: 0.6 }}
+      >
         {slides.map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => setCurrentSlide(index)}
             className={`h-2 rounded-full transition-all duration-300 ${
@@ -185,9 +307,14 @@ export default function Hero() {
                 : "bg-white/50 w-2 hover:bg-white/80"
             }`}
             aria-label={`Go to slide ${index + 1}`}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 2.7 + (index * 0.1), duration: 0.4 }}
           />
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }

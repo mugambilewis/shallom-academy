@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Menu, X, GraduationCap, Phone } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const navigationItems = [
   { name: "Home", href: "#home" },
@@ -21,22 +21,23 @@ export default function Navigation() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 100);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <nav className={`fixed top-0 left-0 text-black right-0 z-50 transition-all duration-300 ${
-      isScrolled ? "glass-card shadow-lg" : "bg-white"
+      isScrolled ? "bg-white shadow-lg" : "bg-white"
     }`}>
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
           <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full gradient-accent flex items-center justify-center">
-              <GraduationCap className="w-6 h-6 text-navy" />
-            </div>
+            <img 
+              src="/android-chrome-192x192.png" 
+              alt="Shallom Academy Logo" 
+              className="w-14 h-14 object-contain transition-transform hover:scale-105"
+            />
             <div className="hidden sm:block">
               <h1 className="text-xl font-display font-bold text-black">
                 Shallom Academy
@@ -72,7 +73,7 @@ export default function Navigation() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden glass-card p-2 text-white"
+            className="lg:hidden glass-card p-2 text-[#0083de]"
             aria-label="Toggle menu"
           >
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

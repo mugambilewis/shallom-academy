@@ -53,7 +53,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative min-h-screen sm:h-screen overflow-hidden">
+    <section className="relative pt-6 sm:pt-4 min-h-screen sm:h-screen overflow-hidden">
       {/* Background Carousel */}
       <div className="absolute inset-0">
         {slides.map((slide, index) => (

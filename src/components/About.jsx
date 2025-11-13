@@ -1,7 +1,9 @@
+// eslint-disable-next-line no-unused-vars
+import { motion } from "framer-motion";
 import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Quote, Heart, Target, Star, Users, BookOpen } from "lucide-react";
-import { motion } from "framer-motion";
+
 
 const values = [
   {

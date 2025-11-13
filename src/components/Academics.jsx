@@ -16,66 +16,10 @@ import {
   ArrowRight,
   CheckCircle2
 } from "lucide-react";
+// eslint-disable-next-line no-unused-vars
 import { motion } from "framer-motion";
 
-const programs = [
-  {
-    icon: Computer,
-    title: "ICT & Robotics",
-    description: "State-of-the-art computer labs with coding, robotics, and digital literacy programs",
-    gradient: "from-blue-500 to-blue-600",
-    features: ["Computer Programming", "Robotics Competitions", "Digital Literacy", "Web Development"]
-  },
-  {
-    icon: FlaskConical,
-    title: "Science & Technology",
-    description: "Modern science labs fostering innovation and scientific thinking",
-    gradient: "from-emerald-500 to-emerald-600",
-    features: ["Science Fairs", "Laboratory Experiments", "Research Projects", "Innovation Challenges"]
-  },
-  {
-    icon: Music,
-    title: "Music & Drama",
-    description: "Comprehensive performing arts program developing creative talents",
-    gradient: "from-purple-500 to-purple-600",
-    features: ["Music Festivals", "Drama Competitions", "Instrumental Training", "Choir Programs"]
-  },
-  {
-    icon: Trophy,
-    title: "Sports Excellence",
-    description: "World-class sports facilities including swimming, football, and athletics",
-    gradient: "from-orange-500 to-orange-600",
-    features: ["Swimming Pool", "Football Pitches", "Athletics Track", "Team Sports"]
-  },
-  {
-    icon: Palette,
-    title: "Fashion & Design",
-    description: "Creative arts program fostering design thinking and artistic expression",
-    gradient: "from-pink-500 to-pink-600",
-    features: ["Fashion Design", "Art & Craft", "Interior Design", "Creative Workshops"]
-  },
-  {
-    icon: ChefHat,
-    title: "Culinary Arts",
-    description: "Practical cooking classes teaching life skills and nutrition",
-    gradient: "from-amber-500 to-amber-600",
-    features: ["Cooking Classes", "Nutrition Education", "Food Safety", "Culinary Skills"]
-  },
-  {
-    icon: Sprout,
-    title: "Agriculture",
-    description: "Hands-on farming experience with rabbit keeping and organic gardening",
-    gradient: "from-green-500 to-green-600",
-    features: ["Organic Gardening", "Rabbit Farming", "Crop Production", "Environmental Care"]
-  },
-  {
-    icon: Code,
-    title: "Coding & Programming",
-    description: "Advanced programming courses preparing students for the digital future",
-    gradient: "from-indigo-500 to-indigo-600",
-    features: ["Python Programming", "Web Development", "App Development", "Game Design"]
-  }
-];
+
 
 const curriculum = [
   {
@@ -96,7 +40,7 @@ const curriculum = [
 ];
 
 export default function Academics() {
-  const [hoveredProgram, setHoveredProgram] = useState(null);
+ 
   const [activeTab, setActiveTab] = useState(0);
 
   return (
@@ -255,143 +199,7 @@ export default function Academics() {
         </motion.div>
 
         {/* Programs Grid */}
-        <motion.div 
-          className="mb-20 md:mb-32"
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-        >
-          <motion.h3 
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 text-gray-900"
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-          >
-            Programs & Activities
-          </motion.h3>
-          <motion.p 
-            className="text-center text-gray-600 text-base md:text-lg mb-12 md:mb-16 max-w-2xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4, duration: 0.6 }}
-          >
-            Discover our diverse range of programs designed to unlock every student's potential
-          </motion.p>
-          <motion.div 
-            className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.6, duration: 0.8 }}
-          >
-            {programs.map((program, index) => (
-              <motion.div
-                key={index}
-                onMouseEnter={() => setHoveredProgram(index)}
-                onMouseLeave={() => setHoveredProgram(null)}
-                className={`bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer transition-all duration-300 border-2 h-[380px] flex flex-col ${
-                  hoveredProgram === index ? 'shadow-2xl border-[#0083de] -translate-y-2' : 'border-gray-200 hover:shadow-xl hover:border-gray-300'
-                }`}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.8 + (index * 0.1), duration: 0.6 }}
-                whileHover={{ y: -5 }}
-              >
-                {/* Image Header with Gradient */}
-                <div className="relative h-40 overflow-hidden flex-shrink-0">
-                  <motion.div 
-                    className={`absolute inset-0 bg-gradient-to-br ${program.gradient}`}
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                  ></motion.div>
-                  
-                  {/* Decorative pattern */}
-                  <div className="absolute inset-0 opacity-10" style={{
-                    backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-                  }}></div>
-                  
-                  {/* Icon */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <motion.div 
-                      className={`transition-all duration-300 ${
-                      hoveredProgram === index ? 'scale-110' : 'scale-100'
-                      }`}
-                      whileHover={{ rotate: 360 }}
-                      transition={{ duration: 0.6 }}
-                    >
-                      <program.icon className="w-16 h-16 text-white drop-shadow-lg" strokeWidth={1.5} />
-                    </motion.div>
-                  </div>
-                  
-                  {/* Title overlay */}
-                  <motion.div 
-                    className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent"
-                    initial={{ y: 20, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 1 + (index * 0.1), duration: 0.5 }}
-                  >
-                    <h4 className="text-lg font-bold text-white">{program.title}</h4>
-                  </motion.div>
-                </div>
-
-                <motion.div 
-                  className={`p-4 flex-1 flex flex-col relative transition-all duration-300 ${
-                  hoveredProgram === index ? 'bg-gray-50' : ''
-                  }`}
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 1.2 + (index * 0.1), duration: 0.5 }}
-                >
-                  <p className="text-sm text-gray-600 mb-4">{program.description}</p>
-                  
-                  {/* Features - always visible */}
-                  <div className="space-y-2 mb-4 flex-1">
-                    {program.features.map((feature, featureIndex) => (
-                      <motion.div 
-                        key={featureIndex} 
-                        className="flex items-center gap-2 text-xs text-gray-600"
-                        initial={{ opacity: 0, x: -10 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 1.4 + (index * 0.1) + (featureIndex * 0.05), duration: 0.4 }}
-                      >
-                        <motion.div 
-                          className="w-1.5 h-1.5 rounded-full bg-[#0083de] flex-shrink-0"
-                          initial={{ scale: 0 }}
-                          whileInView={{ scale: 1 }}
-                          viewport={{ once: true }}
-                          transition={{ delay: 1.6 + (index * 0.1) + (featureIndex * 0.05), duration: 0.3, type: "spring", stiffness: 200 }}
-                        ></motion.div>
-                        <span>{feature}</span>
-                      </motion.div>
-                    ))}
-                  </div>
-                  
-                  {/* Button */}
-                  <div className="mt-auto">
-                    <motion.button 
-                      className="w-full px-4 py-2 text-xs font-semibold text-[#0083de] border border-[#0083de] rounded-lg hover:bg-[#0083de] hover:text-white transition-all duration-300"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 1.8 + (index * 0.1), duration: 0.4 }}
-                    >
-                      Learn More
-                    </motion.button>
-                  </div>
-                </motion.div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
+        
 
         {/* Features Section */}
         <motion.div 

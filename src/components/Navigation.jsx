@@ -1,7 +1,9 @@
+// eslint-disable-next-line no-unused-vars
+import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { Menu, X, Phone } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
+
 
 const navigationItems = [
   { name: "Home", href: "#home" },
@@ -11,7 +13,7 @@ const navigationItems = [
   { name: "Achievements", href: "#achievements" },
   { name: "Voices", href: "#voices" },
   { name: "Admissions", href: "#admissions" },
-  { name: "Contact", href: "#contact" },
+  
 ];
 
 export default function Navigation() {
@@ -152,7 +154,7 @@ export default function Navigation() {
                   <motion.a
                     key={item.name}
                     href={item.href}
-                    className="block px-6 py-2 text-white/90 hover:text-gold transition-colors font-medium"
+                    className="block px-6 py-2 text-black/90 hover:text-gold transition-colors font-medium"
                     onClick={() => setIsOpen(false)}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
